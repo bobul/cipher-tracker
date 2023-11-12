@@ -1,5 +1,7 @@
+import EncryptForm from "@/components/encrypt-form";
+
 export default async function Page() {
   return (
-    <div>encrypt</div>
+    <EncryptForm />
   )
 }
