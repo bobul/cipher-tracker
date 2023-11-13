@@ -121,7 +121,7 @@ export default function EncryptForm() {
           </Button>
         </form>
       </Form>
-      {encryptedText && <p className="mt-2">Your encrypted text: {encryptedText}</p>}
+      {encryptedText && <p className="mt-4">Your encrypted text: {encryptedText}</p>}
     </>
   );
 }

@@ -11,14 +11,14 @@ datasource db {
 }
 
 model Plaintext {
-  id         Int          @id @default(autoincrement())
+  id         String       @id @default(cuid())
   content    String
   createdAt  DateTime     @default(now())
   Ciphertext Ciphertext[]
 }
 
 model Algorithm {
-  id         Int          @id @default(autoincrement())
+  id         String       @id @default(cuid())
   name       String
   key        String
   createdAt  DateTime     @default(now())
@@ -26,15 +26,15 @@ model Algorithm {
 }
 
 model Ciphertext {
-  id        Int      @id @default(autoincrement())
+  id        String   @id @default(cuid())
   content   String
   createdAt DateTime @default(now())
 
   plainText   Plaintext @relation(fields: [plaintextId], references: [id])
-  plaintextId Int
+  plaintextId String
 
   algorithm   Algorithm @relation(fields: [algorithmId], references: [id])
-  algorithmId Int
+  algorithmId String
 }
 
 model Account {
