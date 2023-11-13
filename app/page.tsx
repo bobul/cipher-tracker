@@ -15,6 +15,9 @@ export default function Home() {
           Let's try it now!
         </Link>
       </p>
+      <p className="text-xl text-gray-400 mt-4">
+        P.S. To manage the business data you need to have privileges.
+      </p>
     </div>
   )
 }

@@ -4,6 +4,7 @@ import { signIn, signOut, useSession } from "next-auth/react";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { GithubIcon, KeyIcon } from "lucide-react";
+import Link from "next/link";
 
 function AuthButton() {
   const { data: session } = useSession();
@@ -12,9 +13,23 @@ function AuthButton() {
   if (session) {
     return (
       <nav className="bg-teal-400 py-2 px-12 flex justify-between items-center">
-        <div className="flex space-x-2 items-center text-white">
-          <KeyIcon />
-          <h1 className="font-bold text-lg">Cipher App</h1>
+        <div className="flex space-x-16 items-center justify-center text-white">
+          <div className="flex space-x-2">
+            <Link href="/">
+              <KeyIcon />
+            </Link>
+            <Link href="/">
+              <h1 className="font-bold text-lg">Cipher App</h1>
+            </Link>
+          </div>
+          <div className="flex space-x-10">
+            <Link href="/encrypt">
+              <p>Encrypt</p>
+            </Link>
+            <Link href="/data">
+              <p>Data</p>
+            </Link>
+          </div>
         </div>
         <div className="flex space-x-4 items-center">
           {userImage && <Image
@@ -38,9 +53,23 @@ function AuthButton() {
 
   return (
     <nav className="bg-teal-400 py-2 px-12 flex justify-between items-center">
-      <div className="flex space-x-2 items-center text-white">
-        <KeyIcon />
-        <h1 className="font-bold text-lg">Cipher App</h1>
+      <div className="flex space-x-16 items-center justify-center text-white">
+        <div className="flex space-x-2">
+          <Link href="/">
+            <KeyIcon />
+          </Link>
+          <Link href="/">
+            <h1 className="font-bold text-lg">Cipher App</h1>
+          </Link>
+        </div>
+        <div className="flex space-x-10">
+          <Link href="/encrypt">
+            <p>Encrypt</p>
+          </Link>
+          <Link href="/data">
+            <p>Data</p>
+          </Link>
+        </div>
       </div>
       <Button onClick={() => signIn()}>
         <GithubIcon className="mr-2 h-4 w-4"/>

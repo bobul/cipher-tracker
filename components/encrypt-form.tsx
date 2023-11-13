@@ -66,7 +66,7 @@ export default function EncryptForm() {
                     className="w-full rounded-md border border-gray-200 py-2 pl-2 text-sm outline-2 placeholder:text-gray-500"
                     {...field}
                   >
-                    <option value="" disabled>
+                    <option value="">
                       Select a cipher type
                     </option>
                     <option value="caesar">
