@@ -28,6 +28,11 @@ export default function SidenavLinks() {
           Plaintext
         </h1>
       </Link>
+      <Link href="/data/users">
+        <h1 className={cn("text-gray-500", "md:text-xl", "text-base", "font-bold", { 'underline': isLinkActive("/data/users") })}>
+          Users
+        </h1>
+      </Link>
     </div>
   );
 }

@@ -4,7 +4,7 @@ import * as z from "zod";
 import { FormSchema } from "@/components/encrypt-form";
 import prisma from "@/prisma/client";
 import { caesarEncrypt, vigenereEncrypt } from "@/lib/utils";
-import { Algorithm, Ciphertext, Plaintext } from "@prisma/client";
+import { Algorithm, Ciphertext, Plaintext, User } from "@prisma/client";
 import { revalidatePath } from "next/cache";
 
 export async function encryptText(data: z.infer<typeof FormSchema>) {
@@ -90,6 +90,18 @@ export async function getAlgorithmData(): Promise<Algorithm[]> {
     return algorithms;
   } catch (error) {
     console.error('Error fetching algorithms: ', error);
+    throw error;
+  } finally {
+    prisma.$disconnect();
+  }
+}
+
+export async function getUsersData(): Promise<User[]> {
+  try {
+    const users: User[] = await prisma.user.findMany();
+    return users;
+  } catch (error) {
+    console.error('Error fetching users: ', error);
     throw error;
   } finally {
     prisma.$disconnect();
