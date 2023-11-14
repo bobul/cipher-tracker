@@ -2,6 +2,8 @@
 
 import { HomeIcon } from "lucide-react";
 import Link from "next/link";
+import SidenavLinks from "@/components/sidenav-links";
+import { Toaster } from "@/components/ui/toaster";
 
 export default function DataLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -15,12 +17,14 @@ export default function DataLayout({ children }: { children: React.ReactNode }) 
           Data
         </h1>
       </div>
+      <SidenavLinks />
       <div className="w-full flex flex-col text-center justify-center items-center p-2">
         <h1 className="text-teal-500 md:text-3xl text-xl font-bold mb-3">
           Manage your data.
         </h1>
         {children}
       </div>
+      <Toaster />
     </>
   )
 }

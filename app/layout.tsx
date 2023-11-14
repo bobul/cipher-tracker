@@ -26,11 +26,6 @@ export default async function RootLayout({
         <SessionProvider session={session}>
           <NavMenu />
           {children}
-          <div className="w-full md:h-20 h-12 absolute left-0 bottom-0 md:flex justify-center items-center hidden">
-            <p className="text-teal-400 text-base underline">
-              Cipher App - Made By @ihbobu
-            </p>
-          </div>
         </SessionProvider>
       </body>
     </html>
