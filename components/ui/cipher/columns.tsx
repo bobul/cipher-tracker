@@ -5,7 +5,6 @@ import { Ciphertext } from "@prisma/client";
 import { Button } from "@/components/ui/button";
 import { ArrowUpDown } from "lucide-react";
 import { deleteCiphertextRecord } from "@/lib/actions";
-import { useToast } from "@/components/ui/use-toast";
 
 export const columns: ColumnDef<Ciphertext>[] = [
   {
@@ -44,16 +43,11 @@ export const columns: ColumnDef<Ciphertext>[] = [
     accessorKey: "action",
     header: "Action",
     cell: ({row}) => {
-      const {toast} = useToast();
       return (
         <Button
           variant="destructive"
           onClick={async () => {
             await deleteCiphertextRecord(row.original.id);
-            toast({
-              title: "Deletion is successful! ✅",
-              description: `Ciphertext record with ID ${row.original.id} was deleted.`,
-            })
           }}
         >
           Delete
