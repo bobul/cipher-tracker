@@ -10,7 +10,7 @@ export default function Home() {
         This application allows you to keep track of the encrypted text.
       </p>
       <p className="text-lg font-bold text-gray-400">
-        Awesome! 😉
+        Awesome.
         <Link href="/encrypt" className="text-teal-400 underline font-normal">
           Let's try it now!
         </Link>
